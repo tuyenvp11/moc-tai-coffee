@@ -1,0 +1,16 @@
+### Health
+GET http://127.0.0.1:3001/api/health
+
+### Trang chủ
+GET http://127.0.0.1:3001/api/home
+
+### Lọc và tìm thực đơn
+GET http://127.0.0.1:3001/api/menu?category=coffee&q=ca%20phe&page=1&limit=3
+
+### Tính giá theo kích cỡ/số lượng
+POST http://127.0.0.1:3001/api/quotes
+Content-Type: application/json
+
+{
+  "items": [{"productId":"ca-phe-sua-moc-tai","variantId":"large","quantity":2}]
+}

@@ -1,0 +1,15 @@
+{
+  "categories": [
+    {"id": "coffee", "name": "Cà phê"},
+    {"id": "tea", "name": "Trà & Matcha"},
+    {"id": "cake", "name": "Bánh ngọt"}
+  ],
+  "products": [
+    {"id":"ca-phe-sua-moc-tai","categoryId":"coffee","name":"Cà phê sữa Mộc Tại","price":45000,"image":"/assets/coffee.jpg","description":"Cà phê đậm đà hòa cùng sữa đặc, thêm đá mát lạnh.","tagline":"Đậm vị cà phê, dịu chút ngọt ngào.","featured":true,"available":true,"variants":[{"id":"regular","name":"Vừa","extraPrice":0},{"id":"large","name":"Lớn","extraPrice":10000}]},
+    {"id":"matcha-latte","categoryId":"tea","name":"Matcha latte","price":55000,"image":"/assets/matcha.jpg","description":"Matcha thơm thanh hòa cùng sữa tươi béo dịu.","tagline":"Vị trà thanh, chút sữa mềm êm.","featured":false,"available":true,"variants":[{"id":"regular","name":"Vừa","extraPrice":0},{"id":"large","name":"Lớn","extraPrice":10000}]},
+    {"id":"croissant-bo","categoryId":"cake","name":"Croissant bơ","price":40000,"image":"/assets/croissant.jpg","description":"Bánh sừng bò với từng lớp vỏ vàng giòn và hương bơ thơm.","tagline":"Giòn thơm, cho buổi sáng thật xinh.","featured":false,"available":true,"variants":[{"id":"regular","name":"Một chiếc","extraPrice":0}]},
+    {"id":"latte","categoryId":"coffee","name":"Latte","price":50000,"image":"/assets/coffee.jpg","description":"Espresso và sữa nóng, một lựa chọn êm dịu.","tagline":"Mềm mại từ ngụm đầu tiên.","featured":false,"available":true,"variants":[{"id":"regular","name":"Vừa","extraPrice":0},{"id":"large","name":"Lớn","extraPrice":10000}]},
+    {"id":"matcha-yen-mach","categoryId":"tea","name":"Matcha sữa yến mạch","price":60000,"image":"/assets/matcha.jpg","description":"Matcha và sữa yến mạch thơm nhẹ.","tagline":"Một chút xanh cho ngày mới.","featured":false,"available":true,"variants":[{"id":"regular","name":"Vừa","extraPrice":0},{"id":"large","name":"Lớn","extraPrice":10000}]},
+    {"id":"croissant-mat-ong","categoryId":"cake","name":"Croissant mật ong","price":45000,"image":"/assets/croissant.jpg","description":"Croissant bơ, điểm chút mật ong ngọt dịu.","tagline":"Ngọt vừa đủ, thương thật nhiều.","featured":false,"available":true,"variants":[{"id":"regular","name":"Một chiếc","extraPrice":0}]}
+  ]
+}

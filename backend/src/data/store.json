@@ -1,0 +1,21 @@
+{
+  "name": "Mộc Tại Coffee",
+  "shortName": "Mộc Tại",
+  "wordmark": "mộc tại",
+  "tagline": "Một chút cà phê. Một khoảng bình yên.",
+  "address": null,
+  "openingHours": null,
+  "mapUrl": "https://www.google.com/maps/search/qu%C3%A1n+c%C3%A0+ph%C3%AA/",
+  "isDemo": true,
+  "notice": "Đây là concept minh họa. Địa chỉ và giờ mở cửa sẽ được cập nhật theo thông tin quán của bạn.",
+  "slides": [
+    {"id":"cafe","image":"/assets/cafe.jpg","alt":"Không gian cà phê ấm áp với ánh nắng và cây xanh"},
+    {"id":"interior","image":"/assets/interior.jpg","alt":"Góc quán với nội thất gỗ và ánh sáng tự nhiên"},
+    {"id":"coffee","image":"/assets/coffee.jpg","alt":"Tách cà phê được pha bằng cả sự chăm chút"}
+  ],
+  "gallery": [
+    {"id":"quiet-corner","image":"/assets/interior.jpg","alt":"Góc ngồi cạnh ô cửa","caption":"Một góc cho riêng mình"},
+    {"id":"conversation","image":"/assets/cafe.jpg","alt":"Không gian trò chuyện ấm cúng","caption":"Chuyện mình, kể mãi"},
+    {"id":"daily-coffee","image":"/assets/coffee.jpg","alt":"Một tách cà phê giữa ngày","caption":"Hương vị của bình yên"}
+  ]
+}
