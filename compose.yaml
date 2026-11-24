@@ -1,0 +1,17 @@
+name: moc-tai-coffee
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: moc-tai-coffee:local
+    init: true
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: "3001"
+    ports:
+      - "127.0.0.1:${APP_PORT:-8080}:3001"
+    stop_grace_period: 15s

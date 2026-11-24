@@ -13,6 +13,46 @@ Source website Mộc Tại Coffee đã chuyển từ HTML/CSS/JavaScript thuần
 
 Node.js 22.12+ (khuyến nghị Node.js 24 LTS) và npm. Không cần cài database.
 
+## Chạy bằng Docker Compose
+
+Cài Docker Desktop (Windows/macOS) hoặc Docker Engine kèm Compose v2 (Linux), rồi bật Docker. Không cần cài Node.js/npm trên máy khi chạy theo cách này.
+
+```bash
+git clone https://github.com/tuyenvp11/moc-tai-coffee.git
+cd moc-tai-coffee
+docker compose up -d --build
+```
+
+Nếu đã clone repo, dùng `git pull origin main` trước khi chạy lệnh Compose.
+
+- Website: http://localhost:8080
+- API: http://localhost:8080/api/health
+- Kiểm tra trạng thái: `docker compose ps`
+- Xem log: `docker compose logs -f app`
+- Dừng và xóa container: `docker compose down`
+
+Dockerfile build React bằng Vite, cài riêng dependency production cho Express rồi chạy backend bằng Node.js 24 với user không phải root. Express phục vụ cả React đã build và API trong cùng container. Bản Docker không cần Nginx, không sử dụng adapter Worker và không chạy Vite dev server.
+
+Mặc định chỉ publish cổng lên máy local (127.0.0.1). Đổi cổng host nếu 8080 đang được dùng: sao chép `.env.example` ở root thành `.env`, đổi `APP_PORT=8081`, rồi chạy lại Compose. Cổng bên trong container cố định 3001; HOST được đặt 0.0.0.0 để Docker chuyển tiếp được request. Chưa cần database hoặc volume vì dữ liệu hiện là JSON chỉ đọc.
+
+Sau mỗi lần pull code hoặc sửa source/JSON, build lại image:
+
+```bash
+git pull origin main
+docker compose up -d --build
+```
+
+Source không được bind mount vào container, nên không có hot reload trong chế độ này. Dùng `npm run dev` ở phần sau khi cần phát triển frontend.
+
+Để kiểm tra image bằng tay:
+
+```bash
+docker build -t moc-tai-coffee:local .
+docker run --rm --init -p 127.0.0.1:8080:3001 moc-tai-coffee:local
+```
+
+Docker health check kiểm tra `/api/health`. Workflow `.github/workflows/docker.yml` chạy kiểm tra ứng dụng, build image, khởi động Compose, đợi healthy và smoke test HTML, CSS/JS, ảnh, API, lọc món và tính giá. Sau khi khởi động container, cũng có thể chạy `node scripts/smoke-docker.mjs` nếu máy có Node.js.
+
 ## Chạy trên máy — Windows, macOS, Linux
 
 Giải nén, mở thư mục chứa package.json bằng VS Code, rồi chạy:
@@ -168,7 +208,14 @@ Build tạo dist/server/index.js để xuất bản bản xem. Ảnh, CSS và JS
 
 ## GitHub
 
-Source chưa được đẩy vào GitHub và chưa có đồng bộ tự động. Sau khi tạo một repo, có thể quản lý bộ source này bằng Git như dự án React/Node thông thường. Không commit node_modules, dist hoặc file .env.
+Repository: https://github.com/tuyenvp11/moc-tai-coffee — nhánh `main`.
+
+```bash
+git pull origin main
+docker compose up -d --build
+```
+
+Nếu có chỉnh sửa local, commit hoặc stash trước khi pull, rồi giải quyết conflict nếu có. Không commit node_modules, dist hoặc file .env. Các thay đổi trên Git chỉ có hiệu lực trong Docker sau khi build lại image.
 
 ## Giới hạn còn lại
 
